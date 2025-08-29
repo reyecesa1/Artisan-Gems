@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artisan Gems: Bespoke Jewelry | Joyería Artesanal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0B6E4F;
+            --primary-light: #18A67A;
+            --gold: #D4AF37;
+            --light: #FBFCFD;
+            --dark: #04251B;
+            --text: #333333;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            color: var(--gold);
+            font-size: 28px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo-subtext {
+            font-size: 14px;
+            color: var(--dark);
+            margin-top: -5px;
+        }
+
+        /* Language Toggle */
+        .language-toggle {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .language-btn {
+            background: none;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .language-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav li {
+            position: relative;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            padding: 10px 0;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(11, 110, 79, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1515562141207-7a88fb7ad5e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            color: var(--dark);
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: var(--text);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .section-header p {
+            color: var(--text);
+            max-width: 700px;
+            margin: 20px auto 0;
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .gallery-img {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .gallery-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-img img {
+            transform: scale(1.1);
+        }
+
+        .gallery-content {
+            padding: 20px;
+        }
+
+        .gallery-content h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        /* Process Section */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .process-step {
+            text-align: center;
+            flex: 1;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-light);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin: 0 auto 20px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--dark);
+            color: white;
+        }
+
+        .testimonials .section-header h2 {
+            color: white;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #fff;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-light);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Mobile Navigation */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        /* Mobile menu styles */
+        @media (max-width: 992px) {
+            .language-toggle {
+                margin-right: 10px;
+            }
+            
+            .language-btn {
+                padding: 6px 12px;
+                font-size: 14px;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 20px;
+                box-shadow: var(--shadow);
+                z-index: 1000;
+                max-height: 70vh;
+                overflow-y: auto;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav li {
+                width: 100%;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .process-steps {
+                flex-direction: column;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .language-toggle {
+                order: 3;
+                margin-left: auto;
+                margin-right: 15px;
+            }
+            
+            .cta-button {
+                order: 4;
+            }
+        }
+
+        /* Ensure body is scrollable */
+        body.scroll-lock {
+            overflow: hidden;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Clickable phone and email */
+        .clickable-contact {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .clickable-contact:hover {
+            color: var(--primary-light);
+            text-decoration: underline;
+        }
+        
+        /* Bilingual content styling */
+        [data-lang] {
+            display: none;
+        }
+        
+        [data-lang].active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <div>
+                        <div class="logo-text">Artisan Gems</div>
+                        <div class="logo-subtext" data-lang="en">Bespoke Jewelry • The Woodlands, TX</div>
+                        <div class="logo-subtext" data-lang="es">Joyería Artesanal • The Woodlands, TX</div>
+                    </div>
+                </div>
+
+                <div class="language-toggle">
+                    <button class="language-btn active" data-lang="en">EN</button>
+                    <button class="language-btn" data-lang="es">ES</button>
+                </div>
+
+                <button class="mobile-toggle" id="mobileToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <nav>
+                    <ul id="mainMenu">
+                        <li>
+                            <a href="#">
+                                <span data-lang="en">Home</span>
+                                <span data-lang="es">Inicio</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#gallery">
+                                <span data-lang="en">Gallery</span>
+                                <span data-lang="es">Galería</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#process">
+                                <span data-lang="en">Process</span>
+                                <span data-lang="es">Proceso</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#testimonials">
+                                <span data-lang="en">Reviews</span>
+                                <span data-lang="es">Testimonios</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contact">
+                                <span data-lang="en">Contact</span>
+                                <span data-lang="es">Contacto</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <button class="cta-button" id="headerCta">
+                    <span data-lang="en">Book a Consultation</span>
+                    <span data-lang="es">Reservar Consulta</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>
+                <span data-lang="en">Bespoke <span>Jewelry</span> Crafted for Life's Precious Moments</span>
+                <span data-lang="es">Joyería <span>Artesanal</span> para los Momentos Preciosos de la Vida</span>
+            </h1>
+            <p>
+                <span data-lang="en">Handmade, locally crafted engagement rings, heirloom pieces, and bespoke jewelry serving The Woodlands community.</span>
+                <span data-lang="es">Anillos de compromiso artesanales, piezas de herencia y joyería personalizada para la comunidad de The Woodlands.</span>
+            </p>
+            <button class="cta-button" id="heroCta">
+                <span data-lang="en">Explore Our Collections</span>
+                <span data-lang="es">Explora Nuestras Colecciones</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>
+                    <span data-lang="en">Our Gallery</span>
+                    <span data-lang="es">Nuestra Galería</span>
+                </h2>
+                <p>
+                    <span data-lang="en">Discover our collection of handcrafted jewelry pieces, each telling a unique story</span>
+                    <span data-lang="es">Descubre nuestra colección de piezas de joyería artesanal, cada una con una historia única</span>
+                </p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-img">
+                        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt="Engagement Ring">
+                    </div>
+                    <div class="gallery-content">
+                        <h3>
+                            <span data-lang="en">Custom Engagement Rings</span>
+                            <span data-lang="es">Anillos de Compromiso Personalizados</span>
+                        </h3>
+                        <p>
+                            <span data-lang="en">Timeless settings tailored to your story</span>
+                            <span data-lang="es">Diseños atemporales adaptados a tu historia</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-img">
+                        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt="Necklace">
+                    </div>
+                    <div class="gallery-content">
+                        <h3>
+                            <span data-lang="en">Artisan Necklaces</span>
+                            <span data-lang="es">Collares Artesanales</span>
+                        </h3>
+                        <p>
+                            <span data-lang="en">Elegant pieces for weekday-to-weekend wear</span>
+                            <span data-lang="es">Piezas elegantes para uso diario y de fin de semana</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-img">
+                        <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt="Earrings">
+                    </div>
+                    <div class="gallery-content">
+                        <h3>
+                            <span data-lang="en">Signature Earrings</span>
+                            <span data-lang="es">Aretes Signature</span>
+                        </h3>
+                        <p>
+                            <span data-lang="en">Delicate studs and refined drops</span>
+                            <span data-lang="es">Studs delicados y gotas refinadas</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section" id="process" style="background: #f9f9f9;">
+        <div class="container">
+            <div class="section-header">
+                <h2>
+                    <span data-lang="en">Our Process</span>
+                    <span data-lang="es">Nuestro Proceso</span>
+                </h2>
+                <p>
+                    <span data-lang="en">From concept to creation, we guide you through every step of designing your perfect piece</span>
+                    <span data-lang="es">Desde el concepto hasta la creación, te guiamos en cada paso del diseño de tu pieza perfecta</span>
+                </p>
+            </div>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>
+                        <span data-lang="en">Consultation</span>
+                        <span data-lang="es">Consulta</span>
+                    </h3>
+                    <p>
+                        <span data-lang="en">We begin by understanding your vision, preferences, and story behind the piece.</span>
+                        <span data-lang="es">Comenzamos comprendiendo tu visión, preferencias y la historia detrás de la pieza.</span>
+                    </p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+                    <h3>
+                        <span data-lang="en">Design</span>
+                        <span data-lang="es">Diseño</span>
+                    </h3>
+                    <p>
+                        <span data-lang="en">Our artisans create sketches and 3D models for your approval before crafting begins.</span>
+                        <span data-lang="es">Nuestros artesanos crean bocetos y modelos 3D para su aprobación antes de comenzar la elaboración.</span>
+                    </p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <h3>
+                        <span data-lang="en">Crafting</span>
+                        <span data-lang="es">Elaboración</span>
+                    </h3>
+                    <p>
+                        <span data-lang="en">Using traditional techniques and modern technology, we bring your design to life.</span>
+                        <span data-lang="es">Utilizando técnicas tradicionales y tecnología moderna, damos vida a tu diseño.</span>
+                    </p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>
+                        <span data-lang="en">Delivery</span>
+                        <span data-lang="es">Entrega</span>
+                    </h3>
+                    <p>
+                        <span data-lang="en">We present your finished piece with care and ensure it's perfect in every detail.</span>
+                        <span data-lang="es">Presentamos tu pieza terminada con cuidado y nos aseguramos de que sea perfecta en cada detalle.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>
+                    <span data-lang="en">Client Reviews</span>
+                    <span data-lang="es">Testimonios</span>
+                </h2>
+                <p>
+                    <span data-lang="en">What our clients in The Woodlands and surrounding communities are saying</span>
+                    <span data-lang="es">Lo que dicen nuestros clientes en The Woodlands y comunidades cercanas</span>
+                </p>
+            </div>
+
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <span data-lang="en">"Absolutely beautiful. The ring exceeded expectations and the studio visit was lovely — thoughtful service from start to finish."</span>
+                        <span data-lang="es">"Absolutamente hermoso. El anillo superó las expectativas y la visita al estudio fue encantadora: servicio atento de principio a fin."</span>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah J.">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah J.</h4>
+                            <p>The Woodlands, TX</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <span data-lang="en">"We had a family heirloom restored here. Incredible care and the finish is beautiful — thank you!"</span>
+                        <span data-lang="es">"Restauramos una reliquia familiar aquí. Cuidado increíble y el acabado es hermoso. ¡Gracias!"</span>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael R.">
+                        </div>
+                        <div class="author-info">
+                            <h4>Michael R.</h4>
+                            <p>Shenandoah, TX</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <span data-lang="en">"The custom engagement ring process was seamless. They captured exactly what I envisioned for my now-fiancée!"</span>
+                        <span data-lang="es">"El proceso del anillo de compromiso personalizado fue perfecto. ¡Captaron exactamente lo que imaginé para mi ahora prometida!"</span>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/men/76.jpg" alt="David T.">
+                        </div>
+                        <div class="author-info">
+                            <h4>David T.</h4>
+                            <p>Spring, TX</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>
+                    <span data-lang="en">Contact Us</span>
+                    <span data-lang="es">Contáctanos</span>
+                </h2>
+                <p>
+                    <span data-lang="en">Reach out to schedule a consultation or learn more about our services</span>
+                    <span data-lang="es">Comunícate para programar una consulta o conocer más sobre nuestros servicios</span>
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>
+                                <span data-lang="en">Call Us</span>
+                                <span data-lang="es">Llámanos</span>
+                            </h3>
+                            <p><a href="tel:8327926650" class="clickable-contact">(832) 792-6650</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>
+                                <span data-lang="en">Email Us</span>
+                                <span data-lang="es">Escríbenos</span>
+                            </h3>
+                            <p><a href="mailto:FRAZOCAR37@gmail.com" class="clickable-contact">FRAZOCAR37@gmail.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>
+                                <span data-lang="en">Service Area</span>
+                                <span data-lang="es">Área de Servicio</span>
+                            </h3>
+                            <p>The Woodlands • Conroe • Spring • Kingwood</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h3>
+                                <span data-lang="en">Business Hours</span>
+                                <span data-lang="es">Horario de Atención</span>
+                            </h3>
+                            <p>
+                                <span data-lang="en">Tuesday - Saturday: 10AM - 6PM</span>
+                                <span data-lang="es">Martes - Sábado: 10AM - 6PM</span>
+                            </p>
+                            <p>
+                                <span data-lang="en">By Appointment Only</span>
+                                <span data-lang="es">Solo con Cita Previa</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>
+                        <span data-lang="en">Book a Consultation</span>
+                        <span data-lang="es">Reservar una Consulta</span>
+                    </h3>
+                    <form id="consultationForm">
+                        <div class="form-group">
+                            <label for="name">
+                                <span data-lang="en">Your Name</span>
+                                <span data-lang="es">Tu Nombre</span>
+                            </label>
+                            <input type="text" id="name" class="form-control" placeholder="" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">
+                                <span data-lang="en">Email Address</span>
+                                <span data-lang="es">Correo Electrónico</span>
+                            </label>
+                            <input type="email" id="email" class="form-control" placeholder="" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">
+                                <span data-lang="en">Phone Number</span>
+                                <span data-lang="es">Número de Teléfono</span>
+                            </label>
+                            <input type="tel" id="phone" class="form-control" placeholder="">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">
+                                <span data-lang="en">Your Message</span>
+                                <span data-lang="es">Tu Mensaje</span>
+                            </label>
+                            <textarea id="message" class="form-control" placeholder="" required></textarea>
+                        </div>
+
+                        <button type="submit" class="cta-button" style="width: 100%;">
+                            <span data-lang="en">Send Message</span>
+                            <span data-lang="es">Enviar Mensaje</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Artisan Gems</h3>
+                    <p>
+                        <span data-lang="en">Bespoke jewelry, locally crafted for The Woodlands community. Specializing in custom engagement rings, heirloom restorations, and unique jewelry pieces.</span>
+                        <span data-lang="es">Joyería artesanal, elaborada localmente para la comunidad de The Woodlands. Especializados en anillos de compromiso personalizados, restauraciones de reliquias familiares y piezas de joyería únicas.</span>
+                    </p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>
+                        <span data-lang="en">Quick Links</span>
+                        <span data-lang="es">Enlaces Rápidos</span>
+                    </h3>
+                    <ul class="footer-links">
+                        <li><a href="#">
+                            <span data-lang="en">Home</span>
+                            <span data-lang="es">Inicio</span>
+                        </a></li>
+                        <li><a href="#gallery">
+                            <span data-lang="en">Gallery</span>
+                            <span data-lang="es">Galería</span>
+                        </a></li>
+                        <li><a href="#process">
+                            <span data-lang="en">Process</span>
+                            <span data-lang="es">Proceso</span>
+                        </a></li>
+                        <li><a href="#testimonials">
+                            <span data-lang="en">Testimonials</span>
+                            <span data-lang="es">Testimonios</span>
+                        </a></li>
+                        <li><a href="#contact">
+                            <span data-lang="en">Contact</span>
+                            <span data-lang="es">Contacto</span>
+                        </a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>
+                        <span data-lang="en">Services</span>
+                        <span data-lang="es">Servicios</span>
+                    </h3>
+                    <ul class="footer-links">
+                        <li><a href="#">
+                            <span data-lang="en">Custom Engagement Rings</span>
+                            <span data-lang="es">Anillos de Compromiso Personalizados</span>
+                        </a></li>
+                        <li><a href="#">
+                            <span data-lang="en">Wedding Bands</span>
+                            <span data-lang="es">Alianzas de Boda</span>
+                        </a></li>
+                        <li><a href="#">
+                            <span data-lang="en">Jewelry Repair</span>
+                            <span data-lang="es">Reparación de Joyería</span>
+                        </a></li>
+                        <li><a href="#">
+                            <span data-lang="en">Heirloom Restoration</span>
+                            <span data-lang="es">Restauración de Reliquias</span>
+                        </a></li>
+                        <li><a href="#">
+                            <span data-lang="en">Appraisals</span>
+                            <span data-lang="es">Tasaciones</span>
+                        </a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>
+                        <span data-lang="en">Contact Info</span>
+                        <span data-lang="es">Información de Contacto</span>
+                    </h3>
+                    <p><a href="tel:8327926650" class="clickable-contact">(832) 792-6650</a></p>
+                    <p><a href="mailto:FRAZOCAR37@gmail.com" class="clickable-contact">FRAZOCAR37@gmail.com</a></p>
+                    <p>The Woodlands, TX</p>
+                    <p>
+                        <span data-lang="en">By Appointment Only</span>
+                        <span data-lang="es">Solo con Cita Previa</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>
+                    <span data-lang="en">&copy; 2025 Artisan Gems Creations — Serving The Woodlands & surrounding areas</span>
+                    <span data-lang="es">&copy; 2025 Artisan Gems Creations — Sirviendo a The Woodlands y áreas circundantes</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language toggle functionality
+        const languageButtons = document.querySelectorAll('.language-btn');
+        let currentLanguage = 'en';
+        
+        languageButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                if (lang !== currentLanguage) {
+                    changeLanguage(lang);
+                }
+            });
+        });
+        
+        function changeLanguage(lang) {
+            // Update buttons
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`.language-btn[data-lang="${lang}"]`).classList.add('active');
+            
+            // Update all elements with data-lang attribute
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                element.classList.remove('active');
+            });
+            document.querySelectorAll(`[data-lang="${lang}"]`).forEach(element => {
+                element.classList.add('active');
+            });
+            
+            // Update form placeholders based on language
+            updateFormPlaceholders(lang);
+            
+            currentLanguage = lang;
+            
+            // Update HTML lang attribute for accessibility
+            document.documentElement.lang = lang;
+        }
+        
+        function updateFormPlaceholders(lang) {
+            const nameField = document.getElementById('name');
+            const emailField = document.getElementById('email');
+            const phoneField = document.getElementById('phone');
+            const messageField = document.getElementById('message');
+            
+            if (lang === 'en') {
+                nameField.placeholder = 'Enter your name';
+                emailField.placeholder = 'Enter your email';
+                phoneField.placeholder = 'Enter your phone number';
+                messageField.placeholder = 'Tell us about your project';
+            } else {
+                nameField.placeholder = 'Ingresa tu nombre';
+                emailField.placeholder = 'Ingresa tu correo electrónico';
+                phoneField.placeholder = 'Ingresa tu número de teléfono';
+                messageField.placeholder = 'Cuéntanos sobre tu proyecto';
+            }
+        }
+        
+        // Initialize language and form placeholders
+        changeLanguage('en');
+
+        // Mobile menu toggle
+        document.getElementById('mobileToggle').addEventListener('click', function() {
+            const menu = document.getElementById('mainMenu');
+            menu.classList.toggle('show');
+            document.body.classList.toggle('scroll-lock');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        // Close mobile menu if open
+                        if (window.innerWidth < 768) {
+                            document.getElementById('mainMenu').classList.remove('show');
+                            document.body.classList.remove('scroll-lock');
+                        }
+                        
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Fix for CTA buttons
+        document.getElementById('headerCta').addEventListener('click', function() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        document.getElementById('heroCta').addEventListener('click', function() {
+            document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Form submission
+        document.getElementById('consultationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (currentLanguage === 'en') {
+                alert('Thank you for your inquiry! We will contact you shortly to schedule your consultation.');
+            } else {
+                alert('¡Gracias por tu consulta! Nos comunicaremos contigo shortly para programar tu consulta.');
+            }
+            this.reset();
+        });
+    </script>
+</body>
+</html>
