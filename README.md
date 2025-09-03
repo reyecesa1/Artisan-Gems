@@ -1,12 +1,11 @@
 # Artisan Gems - Bespoke Jewelry Portfolio
 
-A responsive, bilingual portfolio website for Artisan Gems, a bespoke jewelry business based in The Woodlands, TX. This website showcases custom engagement rings, heirloom pieces, and artisan jewelry services for both English and Spanish-speaking clients.
+A responsive, portfolio website for Artisan Gems, a bespoke jewelry business based in The Woodlands, TX. This website showcases custom engagement rings, heirloom pieces, and artisan jewelry services. 
 
 Artisan Gems(https://reyecesa1.github.io/Artisan-Gems/)
 
 ## 🌟 Features
 
-- **Bilingual Support**: Full English/Spanish language toggle functionality
 - **Responsive Design**: Optimized for all devices (desktop, tablet, mobile)
 - **Modern UI/UX**: Clean, professional design with smooth animations
 - **Interactive Elements**: Contact form, smooth scrolling navigation, and gallery
@@ -30,8 +29,4 @@ Artisan Gems(https://reyecesa1.github.io/Artisan-Gems/)
 6. **Contact**: Contact information and consultation booking form
 7. **Footer**: Additional links and information
 
-## 🚀 Getting Started
-
-### Prerequisites
-
-No special prerequisites needed. This is a static website that runs directly in any modern web browser.
+## This is a static website that runs directly in any modern web browser.
